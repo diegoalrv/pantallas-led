@@ -1,0 +1,14 @@
+[Unit]
+Description=LED Rendering Service
+After=local-fs.target
+
+[Service]
+User=root
+CPUAffinity=3
+Nice=-20
+WorkingDirectory=/srv
+ExecStart=/usr/bin/python3 /srv/subsystem/led-driver.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
